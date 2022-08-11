@@ -1,5 +1,5 @@
 {% set name = "tesspy" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ee1c38bb0fedd015b02e9340d595f182a9d7fe4f9ae247c230fce3b3dcf662e0
+  sha256: c36f0aea671476f9d8f8d6184aa7dbf8842cfae696908066f0a1e5c639dbd099
 
 build:
   number: 0
@@ -25,6 +25,8 @@ requirements:
     - mercantile
     - osmnx
     - python >=3.7
+    - scikit-learn
+    - scipy
 
 test:
   imports:
