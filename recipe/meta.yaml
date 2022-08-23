@@ -1,18 +1,18 @@
 {% set name = "tesspy" %}
-{% set version = "0.1.1" %}
+{% set version = "0.1.2" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c36f0aea671476f9d8f8d6184aa7dbf8842cfae696908066f0a1e5c639dbd099
+  sha256: 06c58fae63125184994ebeaedbea4f4023d5930d466a3218cd8be070f1c93079
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -33,11 +33,11 @@ test:
     - tesspy
 
 about:
-  home: "https://github.com/siavash-saki/tesspy"
+  home: https://github.com/siavash-saki/tesspy
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.md
-  summary: "Tessellation of Urban Areas"
+  summary: Tessellation of Urban Areas
   doc_url: https://tesspy.readthedocs.io
   dev_url: https://github.com/siavash-saki
 
