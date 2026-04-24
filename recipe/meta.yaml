@@ -6,29 +6,31 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 06c58fae63125184994ebeaedbea4f4023d5930d466a3218cd8be070f1c93079
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - geopandas >=0.10.0
     - h3-py
     - hdbscan
     - mercantile
     - osmnx
-    - python >=3.7
+    - python >={{ python_min }}
     - scikit-learn
     - scipy
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - tesspy
 
